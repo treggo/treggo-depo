@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/treggo/treggo-depo#readme",
   "dependencies": {
-    "redis": "^3.1.2",
-    "zebra-printer": "^0.5.0"
+    "pdf-to-printer": "^3.0.0",
+    "redis": "^3.1.2"
   }
 }

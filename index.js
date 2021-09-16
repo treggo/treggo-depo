@@ -1,10 +1,10 @@
 const Redis = require("redis");
 const RedisClient = Redis.createClient("redis://apollo.treggo.co");
-const ZebraPrinter = require('zebra-printer');
+const ptp = require("pdf-to-printer");
 
 RedisClient.on("connect", async function() {
     console.log("Redis connected");
-    console.log(ZebraPrinter.getPrinters())
+    console.log( await ptp.getPrinters())
 }).on('error', (e) => {
     console.log("Redis error", JSON.stringify(e));
 })
