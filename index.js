@@ -11,7 +11,7 @@ RedisClient.on("connect", async function() {
     console.log("Redis error", JSON.stringify(e));
 })
 
-ptp.print("file.pdf", {printer: `"Microsoft XPS Document Writer"`,win32: ['-console']}).then(console.log).catch(console.error);
+ptp.print("file.pdf", {printer: `"Microsoft XPS Document Writer"`,win32: ['']}).then(console.log).catch(console.error);
 
 RedisClient.on("message", async function(printer, base64) {
   console.log("Subscriber received message in channel '" + printer + "': " + base64.slice(0, 10)+"...");
