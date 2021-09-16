@@ -19,4 +19,4 @@ RedisClient.on("message", async function(printer, base64) {
   await ptp.print(tmpFilePath, {printer: `"Xerox Phaser 3020"`});
 });
 
-RedisClient.subscribe("printer_zpl_234_jetsmartj");
+RedisClient.subscribe("printer_depo");
