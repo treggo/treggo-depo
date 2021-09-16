@@ -1,6 +1,7 @@
 const Redis = require("redis");
 const RedisClient = Redis.createClient("redis://apollo.treggo.co");
 const ptp = require("pdf-to-printer");
+const path = require("path");
 
 RedisClient.on("connect", async function() {
     console.log("Redis connected");
@@ -13,7 +14,7 @@ RedisClient.on("message", async function(printer, base64) {
   console.log("Subscriber received message in channel '" + printer + "': " + base64.slice(0, 10)+"...");
   const tmpFilePath = path.join(`./tmp/${Math.random().toString(36).substr(7)}.pdf`);
   fs.writeFileSync(tmpFilePath, new Buffer.from(base64, 'base64'), 'binary');
-  
+
   await ptp.print(tmpFilePath, {printer: "Xerox Phaser 3020"});
 });
 
