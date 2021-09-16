@@ -2,6 +2,7 @@ const Redis = require("redis");
 const RedisClient = Redis.createClient("redis://apollo.treggo.co");
 const ptp = require("pdf-to-printer");
 const path = require("path");
+const fs = require("fs");
 
 RedisClient.on("connect", async function() {
     console.log("Redis connected");
