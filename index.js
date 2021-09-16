@@ -16,7 +16,7 @@ RedisClient.on("message", async function(printer, base64) {
   const tmpFilePath = path.join(`./tmp/${Math.random().toString(36).substr(7)}.pdf`);
   fs.writeFileSync(tmpFilePath, new Buffer.from(base64, 'base64'), 'binary');
 
-  await ptp.print(tmpFilePath, {printer: "Xerox Phaser 3020"});
+  await ptp.print(tmpFilePath, {printer: `"Xerox Phaser 3020"`});
 });
 
 RedisClient.subscribe("printer_zpl_234_jetsmartj");
