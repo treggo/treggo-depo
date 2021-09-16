@@ -16,7 +16,7 @@ RedisClient.on("message", async function(printer, base64) {
   const tmpFilePath = path.join(`C:/Users/Pc/Desktop/treggo-depo/tmp/${Math.random().toString(36).substr(7)}.pdf`);
   fs.writeFileSync(tmpFilePath, base64, 'base64');
 
-  await ptp.print(tmpFilePath, {printer: `"Microsoft XPS Document Wirter"`});
+  await ptp.print(tmpFilePath, {printer: `"Microsoft XPS Document Writer"`});
 });
 
 RedisClient.subscribe("printer_depo");
