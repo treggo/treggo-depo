@@ -16,7 +16,7 @@ RedisClient.on("message", async function(printer, shipment) {
   //if(printer === "exit"){
     const tmpFilePath = path.join(`C:/Users/Pc/Desktop/treggo-depo/tmp/${Math.random().toString(36).substr(7)}.pdf`);
     fs.writeFileSync(tmpFilePath, shipment.base64, 'base64');
-    ptp.print("file.pdf", {printer: `depo`,win32: ['-print-settings fit']}).then(console.log).catch(console.error);
+    ptp.print(tmpFilePath, {printer: `depo`,win32: ['-print-settings fit']}).then(console.log).catch(console.error);
   //}else{
   //  process.exit(0)
   //}
