@@ -14,13 +14,12 @@ RedisClient.on("connect", async function() {
 
 RedisClient.on("message", async function(printer, shipment) {
   if(shipment === "exit"){
-    send(`Impresora ${process.argv[2]}: Exit ejecutado`);
     process.exit(0)
   }else{
     shipment = JSON.parse(shipment);
     const tmpFilePath = path.join(`C:/Users/Pc/Desktop/treggo-depo/tmp/${Math.random().toString(36).substr(7)}.pdf`);
     fs.writeFileSync(tmpFilePath, shipment.base64, 'base64');
-    ptp.print(tmpFilePath, {printer: `depo`,win32: ['-print-settings fit']})
+    ptp.print(tmpFilePath, {printer: printer.replace("printer_", ""),win32: ['-print-settings fit']})
     .then((response) => {
       send(`Impresión en ${process.argv[2]}: ${shipment.delivery.address}`);
     })
