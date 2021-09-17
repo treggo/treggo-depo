@@ -5,7 +5,7 @@ const path = require("path");
 const fs = require("fs");
 
 RedisClient.on("connect", async function() {
-    console.log("Redis connected");
+    console.log("Redis connected desde ", process.args[2]);
 }).on('error', (e) => {
     console.log("Redis error", JSON.stringify(e));
 })
