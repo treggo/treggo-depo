@@ -18,6 +18,7 @@
   "homepage": "https://github.com/treggo/treggo-depo#readme",
   "dependencies": {
     "axios": "^0.21.4",
+    "node-hid": "^2.1.1",
     "pdf-to-printer": "^3.0.0",
     "redis": "^3.1.2"
   }
