@@ -1,5 +1,6 @@
 const Redis = require("redis");
 const RedisClient = Redis.createClient("redis://apollo.treggo.co");
+const RedisClientWriter = Redis.createClient("redis://apollo.treggo.co");
 const ptp = require("pdf-to-printer");
 const path = require("path");
 const fs = require("fs");
@@ -54,5 +55,5 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', function(line){
-    RedisClient.lpush("ar_depo_scan_1",line)
+  RedisClientWriter.lpush("ar_depo_scan_1",line)
 })
