@@ -54,5 +54,5 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', function(line){
-    RedisClient.publish("scanner_depo_1",line)
+    RedisClient.lpush("ar_depo_scan_1",line)
 })
