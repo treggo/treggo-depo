@@ -55,5 +55,5 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', function(line){
-  RedisClientWriter.lpush("ar_depo_scan_1",line)
+  RedisClientWriter.lpush("ar_depo_scan_1",line.replace(/\'/g, '-').replace(/Ñ/g, ':').replace(/\*/g, '}').replace(/¨/g, '{').replace(/\?/g, '_').replace(/¨/g, '{').replace(/\[/g, '"'))
 })
