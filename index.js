@@ -1,6 +1,6 @@
 var HID = require('node-hid');
 var devices = HID.devices();
-
+console.log(devices);
 for (dev of devices) {
   try {
     var device = new HID.HID(dev.path);
