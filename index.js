@@ -1,21 +1,10 @@
-var HID = require('node-hid');
-var devices = HID.devices();
-console.log(devices);
-for (dev of devices) {
-  try {
-    var device = new HID.HID(dev.path);
-    device.on("data", function (data) {
-      console.log("Leyo algo de data", data)
-    });
-    device.on("error", function (err) {
-      console.log(err)
-    });
-  } catch (err) {
+var readline = require('readline');
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+});
 
-  }
-}
-process.stdin.pipe(require('split')()).on('data', processLine)
-
-function processLine (line) {
-  console.log(line + '!')
-}
+rl.on('line', function(line){
+    console.log(line);
+})
