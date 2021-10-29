@@ -21,6 +21,7 @@
     "node-hid": "^2.1.1",
     "pdf-to-printer": "^3.0.0",
     "readline": "^1.3.0",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "colors": "^1.4.0"
   }
 }

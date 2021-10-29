@@ -6,6 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const axios = require("axios");
 var readline = require('readline');
+const colors = require("colors");
 
 RedisClient.on("connect", async function() {
     console.log("Redis connected desde ", process.argv[2]);
@@ -36,6 +37,7 @@ RedisClient.on("message", async function(printer, shipment) {
 RedisClient.subscribe("printer_depo");
 
 function send (text) {
+  console.log(text);
   let url = "https://discord.com/api/webhooks/783056196914511902/OGpjuG5a0TSZgnGws4EQwGjggsB6pSD44HTqT1PNFWxRzs5HcTWvIhyXsowYC3f3YGEl"
   axios({
       'method': 'POST',
