@@ -15,7 +15,9 @@ RedisClient.on("connect", async function() {
 })
 
 RedisClient.on("message", async function(printer, shipment) {
+  send(`${process.argv[2]}: Se recibe mensaje: ${JSON.stringify(shipment).length} bytes`);
   if(shipment === "exit"){
+    send(`${process.argv[2]}: Se reinicia`);
     process.exit(0)
   }else{
     shipment = JSON.parse(shipment);
@@ -34,7 +36,7 @@ RedisClient.on("message", async function(printer, shipment) {
 RedisClient.subscribe("printer_depo");
 
 function send (text) {
-  let url = "https://discord.com/api/webhooks/834893079445372978/eYfeR4kugsQd0sxfJfvSFcUn_Qxp98k2XedUCgLISWqahNGmKeYygVJcd9oQzTiPOA9U"
+  let url = "https://discord.com/api/webhooks/783056196914511902/OGpjuG5a0TSZgnGws4EQwGjggsB6pSD44HTqT1PNFWxRzs5HcTWvIhyXsowYC3f3YGEl"
   axios({
       'method': 'POST',
       "url": url,
